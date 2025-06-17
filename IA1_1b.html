@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .fruit-item {
+            margin: 10px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Select Fruits</h2>
+        <label class="fruit-item">
+            <input type="checkbox" value="200"> Apple (Rs. 200 per kg)
+        </label><br>
+        <label class="fruit-item">
+            <input type="checkbox" value="180"> Orange (Rs. 180 per kg)
+        </label><br>
+        <label class="fruit-item">
+            <input type="checkbox" value="80"> Banana (Rs. 80 per kg)
+        </label><br>
+
+        <button onclick="calculateTotal()">Confirm Selection</button>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            let totalCost = 0;
+
+            checkboxes.forEach(checkbox => {
+                totalCost += parseFloat(checkbox.value);
+            });
+
+            totalCost += totalCost * 0.10; // Adding 10% sales tax
+            alert(`Your total cost is Rs. ${totalCost.toFixed(2)}`);
+        }
+    </script>
+
+</body>
+</html>
